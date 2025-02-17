@@ -1,0 +1,155 @@
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 25px;
+    height: 10vh;
+}
+
+.nav-app-logo{
+    width: 125px;
+}
+
+.row-container-buttons{
+    display: flex;
+    align-items: center;
+}
+
+.normal-button{
+    border: solid 1px rgb(215, 86, 215);
+    font-family: 'roboto';
+    color: #000000;
+    background-color: rgb(248, 227, 255);
+    border-radius: 5px;
+    padding: 9px;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logout-button{
+    border: none;
+    font-family: 'roboto';
+    color: #ffffff;
+    background-color: rgb(70, 99, 203);
+    border-radius: 5px;
+    padding: 9px;
+    margin-right: 10px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.synbol{
+    padding-right: 2px;
+    font-size: 18px;
+}
+
+.remaining-half{
+    min-height: 90vh;
+    background-color: antiquewhite;
+    padding: 30px;
+}
+
+.heading{
+    font-family: 'Ink free';
+    font-weight: bold;
+    color: #4d004d;
+    margin: 0px;
+}
+
+.notes-container{
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 71vh;
+}
+
+.heading-container{
+    display: flex;
+    align-items: center;
+}
+
+.title-name{
+    width: 230px;
+    color: #330000;
+    font-family: 'roboto';
+    padding-left: 10px;
+}
+
+.unordered-list{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.loader-container{
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.empty-container{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-image{
+    width: 300px;
+}
+
+.empty-text{
+    font-family: 'ink free';
+    color: rgb(158, 28, 119);
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.search-head-contaienr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.only-search{
+    display: flex;
+    align-items: center;
+    width: 320px;
+    height: 35px;
+    background-color: #ffffff;
+    padding-right: 10px;;
+}
+
+.search-input{
+    border: none;
+    height: 33px;
+    outline: none;
+    width: 300px;
+    padding-left: 10px;
+    color: #330000;
+}
+
+.filters-container{
+    display: flex;
+    align-items: center;
+}
+
+.category-label{
+    font-family: 'Ink free';
+    color: #4d004d;
+    font-weight: 600;
+}
+
+.select-element{
+    margin-right: 15px;
+    margin-left: 10px;
+    font-family: 'ink free';
+    color: #180418;
+}

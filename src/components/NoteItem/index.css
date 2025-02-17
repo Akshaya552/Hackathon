@@ -1,0 +1,42 @@
+.note-container{
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.note-card{
+    text-align: left;
+    width: 230px;
+    color: #000000;
+    font-family: 'roboto';
+    padding-left: 10px;
+}
+
+.content-card{
+    text-align: left;
+    width: 230px;
+    color: #000000;
+    font-family: 'roboto';
+    padding-left: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+     overflow: hidden;
+}
+
+.pin-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.link-item{
+    text-decoration: none;
+    display: flex;
+}

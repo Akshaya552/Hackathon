@@ -1,0 +1,89 @@
+.register-container{
+    height: 100vh;
+    background-color: #ffe6f7;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
+
+.card-container{
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.app-image{
+    width: 150px;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.registration-img{
+    width: 400px;
+}
+
+.horizontal-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.register-label{
+    font-family: 'roboto';
+    color: black;
+    font-size: 13px;
+    padding-right: 10px;
+    width: 110px;
+}
+
+.register-input{
+    flex-grow: 1;
+    font-family: 'roboto';
+    color: #33334d;
+    padding-left: 10px;
+    height: 25px;
+    font-size: 15px;
+    margin-right: 10px;
+    outline: none;
+    border: solid 1px #e0e0eb;
+    border-radius: 3px;
+}
+
+.registration-button{
+    font-family: 'Roboto';
+    color: black;
+    background-color: antiquewhite;
+    align-self: center;
+    width: 100px;
+    padding: 10px;
+    border: solid 1px gold;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.registered-text{
+    color: cornflowerblue;
+    font-family: 'roboto';
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: azure;
+}
+
