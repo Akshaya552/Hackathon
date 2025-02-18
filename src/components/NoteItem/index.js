@@ -1,9 +1,8 @@
 import { TbPinned, TbPinnedFilled } from "react-icons/tb";
-import { MdOutlineArchive, MdArchive} from "react-icons/md";
+import { MdArchive,MdUnarchive,MdDelete} from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import "./index.css";
 import { Link } from "react-router-dom";
-
 
 const NoteItem = (props) => {
   const { data} = props;
@@ -17,7 +16,6 @@ const NoteItem = (props) => {
     pinned,
     archieved,
   } = data;
-
 
   const getpinvalue =()=>{
     if(pinned===0 || false){
@@ -41,7 +39,7 @@ const NoteItem = (props) => {
       let updatedPin =  getpinvalue()
     
      const response= await fetch(
-        `https://hackathonproject-ekn4.onrender.com/notes/${id}/pin`,
+        `https://hackathon-183r.onrender.com/notes/${id}/pin`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -61,7 +59,7 @@ const NoteItem = (props) => {
     try {
       let archiveUpdated = getArchiveValue()
       const res =await fetch(
-         `https://hackathonproject-ekn4.onrender.com/notes/${id}/archive`,
+         `https://hackathon-183r.onrender.com/notes/${id}/archive`,
         {
           method: "PATCH",
           headers: { "content-type": "application/json" },
@@ -76,32 +74,41 @@ const NoteItem = (props) => {
     }
   };
 
-  
-
+  const onDelete = async(id)=>{
+    const res = await fetch(`https://hackathon-183r.onrender.com/notes/${id}`, {
+      method:"DELETE"
+    })
+    if(res.ok===true){
+      window.location.reload()
+    }
+  }
 
 
   return (
    <li className="note-container">
      <Link to={`/notes/${id}`} className='link-item'>
-    <p className="note-card" >{title}</p>
-    <p className="content-card" >{content}</p>
-    <p className="note-card">{created_at}</p>
-    <p className="note-card">{updated_at}</p>
-    <p className="note-card" >{category}</p>
+    <h2 className="note-card" >{title}</h2>
+    <h2 className="content-card" >{content}</h2>
+    <h2 className="created-card">{created_at}</h2>
+    <h2 className="created-card">{updated_at}</h2>
+    <h2 className="category-card" >{category}</h2>
     </Link>
       <button
         type="button"
         className="pin-button"
         onClick={() => onClickChangePin(id)}
       >
-       {pinned ? <TbPinnedFilled size={20} /> : <TbPinned size={20} />}
+       {pinned ? <p><TbPinnedFilled size={20} />pinned </p>: <p> <TbPinned size={20} />pin</p> }
       </button>
-    <button type="button" className="pin-button" >
+    <Link to={`/Edit/${id}/${title}/${content}/${category}`} className='pin-button'>
       <CiEdit size={20} />
       edit
-    </button>
+    </Link>
     <button type="button" className="pin-button" onClick={()=>onChangeArchieve(id)}>
-      {archieved ? <MdArchive size={20}/> : <MdOutlineArchive size={20} />}
+      {archieved ?<p><MdUnarchive size={20}/>release </p>: <p><MdArchive size={20}  />archive</p>}
+    </button>
+    <button type="button" className="pin-button" onClick={()=>onDelete(id)}>
+      <MdDelete size={20} />delete
     </button>
   </li>
     

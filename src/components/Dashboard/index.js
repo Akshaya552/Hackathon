@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NoteItem from "../NoteItem";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie'
 
 const Dashboard = () => {
   const [dataList, setDatalist] = useState([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://hackathonproject-ekn4.onrender.com/notes"
+          "https://hackathon-183r.onrender.com/notes"
         );
         const res = await response.json();
         setDatalist(res);
@@ -47,19 +48,24 @@ const Dashboard = () => {
   }
 
   const onClickLogout = ()=>{
+    Cookies.remove('jwt_token');
     navigate('/login')
+  }
+
+  const onClickAddNote =()=>{
+    navigate('/addnote')
   }
 
   return (
     <>
       <nav className="nav-container">
         <img
-          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739731875/Notes_App_1_a3hw9s.png"
+          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739875997/Notes_App-removebg-preview_n4ku9p.png"
           alt="app-logo"
           className="nav-app-logo"
         />
         <div className="row-container-buttons">
-          <button className="row-container-buttons normal-button">
+          <button className="row-container-buttons normal-button" onClick={onClickAddNote}>
             <MdOutlinePostAdd className="synbol" />
             add
           </button>
@@ -98,15 +104,12 @@ const Dashboard = () => {
           
           </div>
             <div className="notes-container">
-              <div className="heading-container">
-                <p className="title-name">Title</p>
-                <p className="title-name">Content</p>
-                <p className="title-name">Created_at</p>
-                <p className="title-name">last updated_date</p>
-                <p className="title-name">
-                  Category <br />
-                  (personal, work, study, others)
-                </p>
+              <div className="note-container">
+                <p className="note-title">Title</p>
+                <p className="content-title">Content</p>
+                <p className="created-title">Created_at</p>
+                <p className="created-title">last updated_date</p>
+                <p className="category-title"> Category </p>
               </div>
               {updatedList.filter((each) => each.archieved === 0).length === 0 ? (
                 <div className="empty-container">
@@ -115,7 +118,7 @@ const Dashboard = () => {
                     alt="empty-list"
                     className="empty-image"
                   />
-                  <p className="empty-text">No Archived notes</p>
+                  <p className="empty-text">No notes found, Add a note</p>
                 </div>
               ) : (
                 <ul className="unordered-list">

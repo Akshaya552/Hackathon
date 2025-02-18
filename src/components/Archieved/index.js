@@ -1,17 +1,19 @@
 import "./index.css";
 import { useEffect, useState } from "react";
 import NoteItem from "../NoteItem";
+import { useNavigate } from "react-router-dom";
 
 const Archieved = () => {
   const [archievedList, setArchivedList] = useState([]);
   const [errormsg, setErrorMsgg] = useState("");
   const [isLoadi, setLoadi] = useState(true);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const archivedData = async () => {
       try {
         const response = await fetch(
-          "https://hackathonproject-ekn4.onrender.com/notes"
+          "https://hackathon-183r.onrender.com/notes"
         );
         const res = await response.json();
         setArchivedList(res);
@@ -25,11 +27,16 @@ const Archieved = () => {
     archivedData();
   }, []);
 
+
+  const onClickdashboardBack = ()=>{
+    navigate('/dashboard')
+  }
+
   return (
     <>
       <nav className="archieved-nav">
         <img
-          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739731875/Notes_App_1_a3hw9s.png"
+          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739875997/Notes_App-removebg-preview_n4ku9p.png"
           alt="app-logo"
           className="archieved-app-logo"
         />
@@ -38,21 +45,28 @@ const Archieved = () => {
         {errormsg !== undefined && <p>{errormsg}</p>}
         {isLoadi ? (
           <div className="loader-container">
-            <p>Loading...</p>{" "}
+            <p>Loading...</p>
           </div>
         ) : (
           <>
-            <h1 className="heading">Archived Notes</h1>
+            <div className="archive-row-container">
+              <h1 className="heading">Archived Notes</h1>
+              <button
+                type="button"
+                className="back-button"
+                onClick={onClickdashboardBack}
+              >
+                Back
+              </button>
+            </div>
+
             <div className="notes-container">
-              <div className="heading-container">
-                <p className="title-name">Title</p>
-                <p className="title-name">Content</p>
-                <p className="title-name">Created_at</p>
-                <p className="title-name">last updated_date</p>
-                <p className="title-name">
-                  Category <br />
-                  (personal, work, study, others)
-                </p>
+            <div className="note-container">
+                <p className="note-title">Title</p>
+                <p className="content-title">Content</p>
+                <p className="created-title">Created_at</p>
+                <p className="created-title">last updated_date</p>
+                <p className="category-title"> Category </p>
               </div>
               {archievedList.filter((each) => each.archieved === 1).length ===
               0 ? (

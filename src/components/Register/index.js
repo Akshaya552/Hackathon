@@ -31,7 +31,7 @@ const Register = (props) => {
     const onClickRegister = async(event)=>{
         event.preventDefault()
         try {
-            const response = await axios.post("https://hackathonproject-ekn4.onrender.com/signup", {
+            const response = await axios.post("https://hackathon-183r.onrender.com/signup", {
               email,
               password,
             });
@@ -50,24 +50,24 @@ const Register = (props) => {
   return(
     <div className="register-container">
         <div className="card-container">
-        <img src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739741381/Untitled_design2-removebg-preview_djxi6t.png" alt="registartion-logo" className="registration-img"/>
+        <img src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739867259/Untitled_design-removebg-preview_amolbu.png" alt="registartion-logo" className="registration-img"/>
         <form className="form-container" onSubmit={onClickRegister}>
         <img
-          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739731875/Notes_App_1_a3hw9s.png"
+          src="https://res.cloudinary.com/dvhtvbdud/image/upload/v1739875997/Notes_App-removebg-preview_n4ku9p.png"
           alt="app logo"
           className="app-image"
         />
         <div className="horizontal-item">
             <label htmlFor="emailId" className="register-label">Enter e-mail: </label>
-            <input value={email} id='emailId' type="email" placeholder="enter your email" className="register-input" onChange={onChangeEmail} required/>
+            <input value={email} id='emailId' type="email" placeholder="Enter your email" className="register-input" onChange={onChangeEmail} required/>
         </div>
         <div className="horizontal-item">
             <label htmlFor="name" className="register-label">Enter name: </label>
-            <input value={name} id='name' type="text" placeholder="enter your name" className="register-input" required onChange={onChangeName}/>
+            <input value={name} id='name' type="text" placeholder="Enter your name" className="register-input" required onChange={onChangeName}/>
         </div>
         <div className="horizontal-item">
             <label htmlFor="setPassword" className="register-label">Enter password: </label>
-            <input value={password} id='setPassword' type="password" placeholder="enter your password" className="register-input" required onChange={onChangeFirstPassword}/>
+            <input value={password} id='setPassword' type="password" placeholder="Enter your password" className="register-input" required onChange={onChangeFirstPassword}/>
         </div>
         <button type="submit" className="registration-button">Register</button>
         {ismismatched && <p className="registered-text">{message}</p>}
